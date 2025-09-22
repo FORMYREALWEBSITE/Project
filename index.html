@@ -3,57 +3,970 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M.A.R.S. - Redefining Exploration</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="images/favicon.png"> </head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">M.A.R.S.</a> 
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="solution.html">The Solution</a></li>
-                <li><a href="journey.html">Project Journey</a></li>
-                <li><a href="team.html">The Team</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <title>Autonomous Space Construction Robots</title>
+    <style>
+        :root {
+            --primary-color: #0d0d2b;
+            --secondary-color: #1a1a3d;
+            --accent-color: #0119a0;
+            --text-color: #e0e0e0;
+            --glow-color: rgba(1, 24, 167, 0.7);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="animate-on-scroll">M.A.R.S.</h1>
-                <h2 class="animate-on-scroll">Modular Autonomous Robotic System</h2>
-                <p class="animate-on-scroll">Pioneering sustainable habitats on celestial bodies through autonomous robotic construction. </p>
-                <a href="solution.html" class="cta-button animate-on-scroll">Discover Our Innovation</a>
-            </div>
-        </section>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a0a1e 0%, #1a1a3a 50%, #2a2a5a 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
 
-        <section class="content-section animate-on-scroll">
-            <h2>The Challenge of Deep Space Colonization</h2>
-            <p>As humanity expands its horizons, establishing self-sufficient habitats on planets like Mars is essential. [cite: 49, 50] However, transporting building materials from Earth is astronomically expensive and impractical.  Our project directly addresses this challenge.</p>
-        </section>
+        /* Animated background stars */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
 
-        <section class="content-section feature-highlight animate-on-scroll">
-            <div class="feature-text">
-                <h2>A Swarm of Autonomous Builders</h2>
-                <p>Our solution is a fleet of solar-powered robots equipped with 3D printing technology.  They work collaboratively in swarms to construct and maintain habitats using local materials, like Martian regolith, paving the way for true interplanetary colonization. </p>
-                <a href="solution.html" class="cta-button-secondary">Explore the Technology</a>
-            </div>
-            <div class="feature-image">
-                                <img src="images/project-robot.png" alt="M.A.R.S. Robot Concept">
-            </div>
-        </section>
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 30, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2em;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--glow-color);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .logo img {
+            height: 70px;
+            margin-left: 0px;
+            vertical-align: middle;
+        }  
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(45deg, #4CAF50, #2196F3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        /* Page content */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        #home1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
         
-    </main>
+        .home-content1 {
+            max-width: 600px;
+        }
+        
+        .home-content1 h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4em;
+            line-height: 1.2;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+        }
+        
+        .home-content1 h3 {
+            font-size: 2em;
+            color: rgba(0, 255, 255, 1);
+            margin-bottom: 20px;
+        }
+
+        .home-content1 p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        
+        .home-image1 {
+            perspective: 900px;
+        }
+        .robot-img {
+            width: 500px;
+            border-radius: 20px;
+            border: 3px solid rgb(0, 168, 168);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+            transition: transform 0.5s ease;
+            transform: rotateY(-20deg) rotateX(10deg);
+        }
+
+        .robot-img:hover {
+            transform: rotateY(0) rotateX(0) scale(1.05);
+        }
+        /* Hero section */
+
+
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(76, 175, 80, 0.5)); }
+            to { filter: drop-shadow(0 0 30px rgba(33, 150, 243, 0.8)); }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #4CAF50, #2196F3);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+            position: relative;
+            z-index: 1;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.5);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3); }
+            50% { box-shadow: 0 8px 35px rgba(76, 175, 80, 0.6); }
+            100% { box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3); }
+        }
+
+        /* Feature cards */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(76, 175, 80, 0.2);
+            border-color: rgba(76, 175, 80, 0.5);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #4CAF50, #2196F3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: #4CAF50;
+        }
+
+        /* Project images section */
+        .project-images {
+            margin: 3rem 0;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .image-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(33, 150, 243, 0.2));
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gape1{
+            width:100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(33, 150, 243, 0.2));
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .image-placeholder:hover {
+            border-color: #4CAF50;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(33, 150, 243, 0.3));
+            transform: scale(1.05);
+        }
+
+        /* Team section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(33, 150, 243, 0.2);
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #4CAF50, #2196F3);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        /* Section styling */
+        .section {
+            margin: 4rem 0;
+            padding: 2rem 0;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            background: linear-gradient(45deg, #4CAF50, #2196F3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        /* Business model section */
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .business-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .business-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(76, 175, 80, 0.5);
+        }
+
+        .business-card h3 {
+            color: #4CAF50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 10, 30, 0.95);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 4rem;
+        }
+
+        /* Enhanced animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature-card:nth-child(2) { animation-delay: 0.1s; }
+        .feature-card:nth-child(3) { animation-delay: 0.2s; }
+        .feature-card:nth-child(4) { animation-delay: 0.3s; }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .business-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #4CAF50, #2196F3);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background stars -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo"><img src="logo.png" alt="logo"></a>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('solution')">Solution</a></li>
+                <li><a href="#" onclick="showPage('team')">Team</a></li>
+                <li><a href="#" onclick="showPage('impact')">Impact</a></li>
+                <li><a href="#" onclick="showPage('business')">Business</a></li>
+                <li><a href="#" onclick="showPage('gallery')">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="container">
+            <section id="home1">
+                <div class="home-content1">
+                    <h1>M.A.R.S.</h1>
+                    <h3>Redefining Exploration</h3>
+                    <p>Our project develops fully autonomous 3D-printing robots to build sustainable human habitats on celestial bodies like Mars and the Moon. Using local resources, we're making interplanetary colonization a tangible reality.</p>
+                </div>
+                <div class="home-image1">
+                    <img src="p12.jpeg" alt="M.A.R.S. Robot" class="robot-img">
+                </div>
+            </section>
+
+            <div class="section">
+                <h2>Mission Overview</h2>
+                <p>Our project addresses the critical challenge of establishing sustainable habitats on Mars and other extraterrestrial environments. The conventional approach of transporting construction materials from Earth is both economically and logistically prohibitive.</p>
+                
+                <p>We have developed autonomous 3D-printing robotic systems that leverage in-situ resources such as regolith to fabricate modular habitats. Operating in coordinated swarms, these robots are capable of constructing, maintaining, and repairing structures autonomously, ensuring resilience and efficiency in the extreme conditions of space.</p>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Autonomous Operation</h3>
+                    <p>Our robots function autonomously with minimal human oversight, employing advanced AI algorithms for navigation and construction.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏗️</div>
+                    <h3>3D Printing Technology</h3>
+                    <p>Equipped with specialized 3D-printing arms, the robots can fabricate structures using in-situ materials such as regolith and space debris.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">☀️</div>
+                    <h3>Solar Powered</h3>
+                    <p>Energy-efficient solar power systems provide sustainable, long-term operation in extraterrestrial environments.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Self-Maintenance</h3>
+                    <p>Advanced damage detection and autonomous repair systems ensure structural integrity and operational safety.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Swarm Collaboration</h3>
+                    <p>Multiple robots coordinate seamlessly to construct, maintain, and repair structures efficiently to save time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧭</div>
+                    <h3>AI-Driven Navigation</h3>
+                    <p>Intelligent algorithms enable terrain analysis, optimal site selection, and autonomous decision-making in harsh environments.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solution Page -->
+    <div id="solution" class="page">
+        <div class="container">
+            <div class="section">
+                <h2>Our Robotic Solution</h2>
+                <p>As humanity progresses towards becoming a Type 1 civilization, establishing self-sufficient habitats on other planets becomes essential. Our solution addresses the critical challenge of building sustainable human habitats on celestial bodies with minimal Earth dependence.</p>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Concept Development</h3>
+                    <p>The idea originated from analyzing the challenges of space colonization. We identified that traditional construction methods proved impractical and chose 3D printing with local resources as the most efficient solution.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Research & Innovation</h3>
+                    <p>We explored existing concepts such as NASA's lunar habitat projects and identified a gap: existing solutions often require significant human intervention. Our innovation focuses on fully autonomous robots with swarm collaboration.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Mechanical Construction</h3>
+                    <p>Core components include 3D printing arms, solar panels, mobility systems with tracks, and sensing equipment using LIDAR and cameras. All designed for harsh space environments.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Control Systems</h3>
+                    <p>Advanced algorithms for autonomous navigation, coordination between multiple robots, material processing, and maintenance protocols. All tested in simulated environments for reliability.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Design Features</h2>
+                <div style="display: grid; gap: 1rem; margin: 2rem 0;">
+                    <div style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #4CAF50;">
+                        <strong>3D Printing Arms:</strong> Utilize local resources for habitat construction
+                    </div>
+                    <div style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #2196F3;">
+                        <strong>Autonomous Operation:</strong> Minimal human intervention required
+                    </div>
+                    <div style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #FF9800;">
+                        <strong>Energy Efficiency:</strong> Solar-powered operations for sustainability
+                    </div>
+                    <div style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #9C27B0;">
+                        <strong>Collaborative Algorithms:</strong> Swarm-based coordination between robots
+                    </div>
+                    <div style="padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #F44336;">
+                        <strong>Maintenance:</strong> Automatic damage detection and repair capabilities
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Challenges Overcome</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>Material Processing</h3>
+                        <p>Efficient material processing with diverse terrain conditions solved through self-optimization algorithms and adaptive coordination.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Navigation Systems</h3>
+                        <p>Developing reliable autonomous navigation algorithms for unknown terrain using advanced LIDAR and camera systems.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Energy Efficiency</h3>
+                        <p>Ensuring long-term energy efficiency through optimized solar panel arrays and intelligent power management systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Page -->
+    <div id="team" class="page">
+        <div class="container">
+            <div class="section">
+                <h2>Meet Our Team</h2>
+                <p>We are passionate robotics enthusiasts from India, representing the Junior age group (11-15) in the WRO competition. Our diverse skills in hardware design, software development, and UI engineering come together to create innovative solutions.</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-avatar">AG</div>
+                    <h3>Aarav Gupta</h3>
+                    <p><strong>Robotics Hardware Designer</strong></p>
+                    <p>As the product designer, Aarav focuses on crafting user-centric and efficient robotic systems. He aims to build autonomous robots that perform complex tasks reliably.</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">DA</div>
+                    <h3>Divyansh Aggarwal</h3>
+                    <p><strong>Robotics Software Designer</strong></p>
+                    <p>Class 11 student from Oxford Senior Secondary School, passionate about circuits and robots. 2nd place winner at ATL Tinkering Lab 2024-25.</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">AC</div>
+                    <h3>Aarush Chaudhary</h3>
+                    <p><strong>Hardware-UI Engineer</strong></p>
+                    <p>9th grade student from Green Fields School and pioneer behind the project. Designed the GUI interface and assembled the entire project.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Impact Page -->
+    <div id="impact" class="page">
+        <div class="container">
+            <div class="section">
+                <h2>Real-Life Impact</h2>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Impact</h3>
+                    <p>Supporting the future of human civilization by making space colonization more practical and cost-effective. Reducing reliance on Earth for construction materials and helping establish independent, sustainable space habitats.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏠</div>
+                    <h3>Local Earth Applications</h3>
+                    <p>The same 3D printing and autonomous robotics technologies can be used for disaster relief housing, low-cost rural construction, and military base setups.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Educational Impact</h3>
+                    <p>Promotes technological education and research, especially in robotics, AI, and sustainable construction methods.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Practical Use Cases</h2>
+                <div class="feature-card" style="margin: 2rem 0;">
+                    <h3>🌙 Moon Habitat Deployment</h3>
+                    <p>When a meteorite strike compromises living quarters at an international lunar base, putting astronauts at risk, our robots autonomously detect damage, process lunar regolith, and 3D print repairs without human assistance.</p>
+                </div>
+                
+                <div class="feature-card" style="margin: 2rem 0;">
+                    <h3>🏔️ Emergency Earth Response</h3>
+                    <p>During a major earthquake in a remote Himalayan village where access is blocked, an autonomous 3D printing robot can be airlifted to disaster sites to print temporary shelters using locally sourced soil and onboard systems.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Who Will Benefit</h2>
+                <p><strong>Primary Users:</strong> Space agencies like NASA, ISRO, ESA, and private space companies like SpaceX and Blue Origin.</p>
+                <p><strong>Secondary Users:</strong> NGOs, governments, disaster relief teams like Red Cross and UNHCR, and defense sectors requiring rapid deployment solutions.</p>
+                <p><strong>Scale of Impact:</strong> Millions of people over time — starting with thousands of astronauts, scientists, and emergency victims who need immediate shelter solutions.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Business Page -->
+    <div id="business" class="page">
+        <div class="container">
+            <div class="section">
+                <h2>Business Model</h2>
+                <p>Our business model focuses on providing autonomous construction solutions for both space exploration and Earth-based emergency applications.</p>
+            </div>
+
+            <div class="business-grid">
+                <div class="business-card">
+                    <h3>💡 Value Propositions</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• Autonomous construction using local resources</li>
+                        <li>• Reduces human intervention in hazardous environments</li>
+                        <li>• Cost-effective and scalable for planetary colonization</li>
+                        <li>• Repurposable for emergency construction on Earth</li>
+                    </ul>
+                </div>
+                
+                <div class="business-card">
+                    <h3>👥 Customer Segments</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• Space agencies (NASA, ISRO, ESA)</li>
+                        <li>• Private aerospace companies (SpaceX, Blue Origin)</li>
+                        <li>• Disaster relief organizations</li>
+                        <li>• Defense and military sectors</li>
+                        <li>• Construction firms in extreme environments</li>
+                    </ul>
+                </div>
+
+                <div class="business-card">
+                    <h3>🔧 Key Activities</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• Designing and testing autonomous robots</li>
+                        <li>• Developing AI algorithms for navigation and printing</li>
+                        <li>• Simulation and field testing in Mars-like conditions</li>
+                        <li>• Maintenance, R&D, and customer training</li>
+                    </ul>
+                </div>
+
+                <div class="business-card">
+                    <h3>🤝 Customer Relationships</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• Long-term contracts with agencies</li>
+                        <li>• Continuous technical support and updates</li>
+                        <li>• Co-development partnerships for missions</li>
+                        <li>• Collaborative research initiatives</li>
+                    </ul>
+                </div>
+
+                <div class="business-card">
+                    <h3>💰 Revenue Streams</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• Direct sales of autonomous construction robots</li>
+                        <li>• Long-term maintenance and support contracts</li>
+                        <li>• Licensing of autonomous software algorithms</li>
+                        <li>• Joint ventures for Earth applications</li>
+                    </ul>
+                </div>
+
+                <div class="business-card">
+                    <h3>💸 Cost Structure</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>• R&D for robotics, AI, and 3D printing</li>
+                        <li>• Testing and prototyping costs</li>
+                        <li>• Simulation software and hardware development</li>
+                        <li>• Deployment and transport logistics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Page -->
+    <div id="gallery" class="page">
+        <div class="container">
+            <div class="section">
+                <h2>Project Gallery</h2>
+                <p>Explore our robotic construction system through detailed images and components.</p>
+            </div>
+
+            <div class="project-images">
+                <h3 style="color: #4CAF50; margin-bottom: 1rem;">Robot Components</h3>
+                <div class="image-grid">
+                    <div class="image-placeholder"><img src="p7.jpeg" alt="robot_arm" class="gape1"></div>
+                    <div class="image-placeholder"><img src="p.jpeg" alt="robot_arm" class="gape1"></div>
+                    <div class="image-placeholder"><img src="p5.jpeg" alt="robot_arm" class="gape1"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Technical Specifications</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>Mobility System</h3>
+                        <p>Tank treads designed for rugged terrain navigation on planetary surfaces. Equipped with suspension systems for stability during construction operations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>3D Printing System</h3>
+                        <p>Multi-axis robotic arm with heated nozzle system capable of processing regolith and other local materials into construction-grade building blocks.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Power Management</h3>
+                        <p>Advanced solar panel arrays with battery backup systems ensure continuous operation even during planetary night cycles.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Sensor Array</h3>
+                        <p>LIDAR and camera systems for terrain mapping, obstacle detection, and construction site assessment. Real-time environmental monitoring capabilities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
-        <p>&copy; 2025 M.A.R.S. Project Team. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 Autonomous Space Construction Robots | WRO Competition Entry | Team from India</p>
+            <p>Building the future of interplanetary civilization, one habitat at a time.</p>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Create animated stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 100;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation highlighting
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => link.style.background = 'transparent');
+            
+            // Highlight active nav item
+            const activeLink = document.querySelector(`[onclick="showPage('${pageId}')"]`);
+            if (activeLink) {
+                activeLink.style.background = 'linear-gradient(45deg, #4CAF50, #2196F3)';
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Add hover effects to cards
+        function addCardEffects() {
+            const cards = document.querySelectorAll('.feature-card, .team-member, .business-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        }
+
+        // Parallax effect for hero section
+        function addParallaxEffect() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.transform = `translateY(${scrolled * 0.2}px)`;
+                }
+            });
+        }
+
+        // Create floating particles effect
+        function createFloatingParticles() {
+            const particles = [];
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'fixed';
+                particle.style.width = '3px';
+                particle.style.height = '3px';
+                particle.style.background = `linear-gradient(45deg, #4CAF50, #2196F3)`;
+                particle.style.borderRadius = '50%';
+                particle.style.pointerEvents = 'none';
+                particle.style.opacity = '0.4';
+                particle.style.zIndex = '-1';
+                
+                document.body.appendChild(particle);
+                particles.push({
+                    element: particle,
+                    x: Math.random() * window.innerWidth,
+                    y: Math.random() * window.innerHeight,
+                    vx: (Math.random() - 0.5) * 1.5,
+                    vy: (Math.random() - 0.5) * 1.5
+                });
+            }
+            
+            function animateParticles() {
+                particles.forEach(particle => {
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    
+                    if (particle.x < 0 || particle.x > window.innerWidth) particle.vx *= -1;
+                    if (particle.y < 0 || particle.y > window.innerHeight) particle.vy *= -1;
+                    
+                    particle.element.style.left = particle.x + 'px';
+                    particle.element.style.top = particle.y + 'px';
+                });
+                
+                requestAnimationFrame(animateParticles);
+            }
+            
+            animateParticles();
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            addCardEffects();
+            addParallaxEffect();
+            
+            // Add smooth loading animation
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 1s ease-in-out';
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            // Start particle animation after page loads
+            setTimeout(createFloatingParticles, 1500);
+        });
+
+        // Add typing effect to hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Enhanced card interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.feature-card, .team-member, .business-card');
+            
+            cards.forEach((card, index) => {
+                // Staggered animation delay
+                card.style.animationDelay = (index * 0.1) + 's';
+                
+                // Add click effect
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-10px) scale(1.02)';
+                    }, 150);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
